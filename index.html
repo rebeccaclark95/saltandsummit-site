@@ -2,18 +2,23 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Salt &amp; Summit — Coastal Luxury. Built to Last.</title>
-  <meta name="description" content="Salt &amp; Summit Design Build Inc. — Design • Permit • Build — one accountable team from concept to keys in Laguna Beach." />
+  <meta name="description" content="Salt &amp; Summit Design Build Inc. — Design • Permit • Build. One accountable team delivering custom homes, ADUs, and outdoor living in Orange County. Licensed General Contractor • CA CSLB #1145069 • Class B." />
+  <meta property="og:title" content="Salt &amp; Summit — Design • Permit • Build" />
+  <meta property="og:description" content="Custom homes, ADUs, and outdoor living in Orange County. Licensed General Contractor • CSLB #1145069 (Class B)." />
+  <meta property="og:image" content="https://your-domain.example/hero.jpg" /><!-- update to your live site URL once Pages is on -->
   <meta name="theme-color" content="#F4E9D6" />
+  <!-- Simple emoji favicon (🏔️) so you don’t need extra uploads -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='50' x='6' font-size='46'%3E%F0%9F%8F%94%EF%B8%8F%3C/text%3E%3C/svg%3E">
   <style>
     :root{
-      --bg:#FAF7F2;        /* warm neutral background */
-      --ink:#1A1A1A;       /* rich, dark text */
-      --muted:#6E6A65;     /* soft grey text */
-      --line:#EBE5DC;      /* subtle divider */
-      --accent:#8C6F56;    /* taupe/gold accent */
-      --accent-ink:#fff;   /* text on accent button */
+      --bg:#FAF7F2;        /* soft neutral */
+      --ink:#171717;       /* primary text */
+      --muted:#6E6A65;     /* secondary text */
+      --line:#ECE4DA;      /* subtle divider */
+      --accent:#8C6F56;    /* warm taupe */
+      --accent-ink:#fff;   /* button text */
     }
     *{box-sizing:border-box}
     html,body{height:100%}
@@ -28,157 +33,208 @@
     a{color:inherit;text-decoration:none}
     .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
     /* Header */
-    header{position:sticky;top:0;z-index:50;background:rgba(250,247,242,.92);backdrop-filter:saturate(140%) blur(6px);border-bottom:1px solid var(--line)}
-    .nav{display:flex;align-items:center;justify-content:space-between;height:72px}
-    .brand{font-family:Georgia,serif;font-weight:600;letter-spacing:.02em}
-    .nav-links{display:flex;gap:24px}
-    .nav-links a{color:var(--muted);font-weight:500}
-    .nav-links a:hover{color:var(--ink)}
+    header{
+      position:sticky;top:0;z-index:50;background:rgba(250,247,238,.96);
+      backdrop-filter:saturate(140%) blur(6px);border-bottom:1px solid var(--line)
+    }
+    .nav{display:flex;align-items:center;justify-content:space-between;height:72px;gap:24px}
+    .brand{display:flex;align-items:center;gap:14px}
+    .brand img{height:40px;width:auto;display:block}
+    .brand .name{font-weight:700;letter-spacing:.02em;white-space:nowrap}
+    .links{display:flex;align-items:center;gap:20px}
     .btn{
       display:inline-flex;align-items:center;gap:.6rem;
-      padding:.8rem 1.1rem;border-radius:999px;
-      border:1.5px solid var(--accent);
+      padding:.7rem 1rem;border-radius:999px;border:1.5px solid var(--accent);
       background:var(--accent);color:var(--accent-ink);font-weight:600
     }
+    .btn:hover{filter:brightness(.95)}
     .btn.secondary{background:transparent;color:var(--ink);border-color:var(--line)}
     .btn.secondary:hover{border-color:var(--accent)}
-    /* Hero (static image) */
+    /* Hero */
     .hero{
-      position:relative;min-height:76vh;
-      display:flex;align-items:center;justify-content:center;
-      background:url('hero.jpg') center/cover no-repeat;
-      border-bottom:1px solid var(--line)
+      position:relative;min-height:72vh;display:flex;align-items:center;justify-content:center;
+      background:url('hero.jpg') center/cover no-repeat;border-bottom:1px solid var(--line)
     }
-    .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.28),rgba(0,0,0,.05))}
-    .hero-inner{position:relative;text-align:center;color:#fff;padding:64px 0}
-    .eyebrow{letter-spacing:.3em;text-transform:uppercase;font-size:.8rem;opacity:.9}
+    .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.30),rgba(0,0,0,.10))}
+    .hero-inner{position:relative;z-index:1;text-align:center;color:#fff;padding:72px 0}
+    .eyebrow{letter-spacing:.32em;text-transform:uppercase;font-size:.82rem;opacity:.9}
     h1{margin:.6rem 0 1rem;font:700 42px/1.1 Georgia,serif}
-    .sub{max-width:760px;margin:0 auto 1.2rem;font-size:18px;opacity:.95}
+    .sub{max-width:780px;margin:0 auto 1.2rem;font-size:18px;opacity:.95}
     .cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
     /* Sections */
-    section{padding:84px 0;border-bottom:1px solid var?--line}
-    h2{font:700 32px/1.2 Georgia,serif;margin:0 0 12px}
-    .note{color:var(--muted);margin:0 0 36px}
+    section.section{padding:72px 0;border-bottom:1px solid var(--line)}
+    h2{margin:0 0 12px;font:700 32px/1.2 Georgia,serif}
+    .muted{color:var(--muted)}
     .grid{display:flex;gap:18px;flex-wrap:wrap}
-    .tile{flex:1 1 calc(33.33% - 12px);min-width:260px;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 6px 22px rgba(0,0,0,.06);transition:transform .2s ease, box-shadow .2s ease}
-    .tile:hover{transform:translateY(-3px);box-shadow:0 10px 34px rgba(0,0,0,.08)}
+    .tile{flex:1 1 calc(33.33% - 12px);min-width:260px;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,.06);transition:transform .12s ease, box-shadow .12s ease}
+    .tile:hover{transform:translateY(-4px);box-shadow:0 12px 24px rgba(0,0,0,.08)}
     .tile img{display:block;width:100%;height:320px;object-fit:cover}
-    .cap{padding:14px 16px;color:#544d44;font-size:.95rem}
-    footer{padding:40px 0;color:var(--muted)}
-    .foot{display:flex;gap:12px;justify-content:space-between;border-top:1px solid var(--line);padding-top:18px}
+    .cap{padding:14px 16px;color:#4f4a43;font-size:.95rem}
+    /* Contact */
+    .contact-wrap{display:grid;grid-template-columns:1fr;gap:24px}
+    @media (min-width: 860px){ .contact-wrap{grid-template-columns:1fr 1fr} }
+    .card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:0 6px 18px rgba(0,0,0,.06)}
+    .contact-meta{display:grid;grid-template-columns:140px 1fr;gap:10px 16px;align-items:start}
+    .label{color:#6E6A65;font-weight:600}
+    footer{border-top:1px solid var(--line);padding:20px 24px}
+    .footbar{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between}
+    .footbar .left,.footbar .right{display:flex;gap:16px;align-items:center}
   </style>
 </head>
 <body>
+
   <!-- Header -->
   <header>
-    <div class="wrap nav">
-      <div class="brand">Salt &amp; Summit</div>
-      <nav class="nav-links">
+    <div class="wrap nav" role="navigation" aria-label="Primary">
+      <div class="brand">
+        <img src="salt_summit_logo_black_smooth.svg" alt="Salt &amp; Summit Design Build logo" />
+        <div class="name">Salt &amp; Summit&nbsp;Design&nbsp;Build&nbsp;Inc.</div>
+      </div>
+      <div class="links">
         <a href="#work">Work</a>
         <a href="#services">Services</a>
         <a href="#about">About</a>
-        <a class="btn" href="mailto:{{REPLACE_WITH_YOUR_EMAIL}}?subject=Site%20Walk%20Request%20—%20Salt%20%26%20Summit&amp;body=Hi%20Salt%20%26%20Summit%2C%0AWe’d%20love%20to%20schedule%20a%20site%20walk.%0AName:%20%0AAddress:%20%0AProject%20type:%20%0AIdeal%20date/time:%20">Book a&nbsp;Site&nbsp;Walk</a>
-      </nav>
+        <a class="btn" href="mailto:office@saltandsummit.build?subject=Site%20Walk%20Request%20%E2%80%94%20Salt%20%26%20Summit&amp;body=Hi%20Salt%20%26%20Summit%2C%0AWe%E2%80%99d%20like%20to%20schedule%20a%20site%20walk.%0AName:%20%0AAddress:%20%0AProject%20type:%20%0AIdeal%20date/time:%20">Book&nbsp;a&nbsp;Site&nbsp;Walk</a>
+      </div>
     </div>
   </header>
 
   <!-- Hero -->
-  <section class="hero" role="img" aria-label="Hero: coastal home">
+  <section class="hero" role="img" aria-label="Featured project: Coastal home with warm materials">
     <div class="hero-inner">
-      <div class="eyebrow">Laguna&nbsp;Beach, California</div>
-      <h1>Coastal Luxury. Built to&nbsp;Last.</h1>
-      <p class="sub">Design • Permit • Build — one accountable team for refined homes, ADUs &amp; outdoor living.</p>
-      <div class="cta">
-        <a class="btn" href="mailto:sam@saltandsummit.build?subject=Site%20Walk%20Request%20—%20Salt%20%26%20Summit&amp;body=Hi%20Salt%20%26%20Summit%2C%0AWe’d%20love%20to%20schedule%20a%20site%20walk.%0AName:%20%0AAddress:%20%0AProject%20type:%20%0AIdeal%20date/time:%20">Book a&nbsp;Site&nbsp;Walk</a>
-        <a class="btn secondary" href="#work">See&nbsp;Work</a>
+      <div class="eyebrow">Laguna Beach, California</div>
+      <h1>Coastal&nbsp;Luxury. Built&nbsp;to&nbsp;Last.</h1>
+      <p class="sub">Design • Permit • Build — one accountable team for custom homes, ADUs, and outdoor living.</p>
+      <div class="links" role="group" aria-label="Primary calls to action">
+        <a class="btn" href="mailto:office@saltandsummit.build?subject=Site%20Walk%20Request%20%E2%80%94%20Salt%20%26%20Summit&amp;body=Hi%20Salt%20%26%20Summit%2C%0AWe%E2%80%99d%20like%20to%20schedule%20a%20site%20walk.%0AName:%20%0AAddress:%20%0AProject%20type:%20%0AIdeal%20date/time:%20">Book&nbsp;a&nbsp;Site&nbsp;Walk</a>
+        <a class="btn secondary" href="https://www.instagram.com/salt.summit/" target="_blank" rel="noopener">See&nbsp;Work →</a>
       </div>
     </div>
   </section>
 
-  <!-- Work -->
-  <section id="work" class="wrap">
-    <h2>Selected Work</h2>
-    <p class="note">Crafted materials • Tranquil spaces • Enduring quality</p>
-    <div class="grid">
-      <article class="tile">
-        <img src="work1.jpg" alt="Onyx feature wall &amp; vanity">
-        <div class="cap">Lit-up onyx marble feature wall</div>
-      </article>
-      <article class="tile">
-        <img src="work2.jpg" alt="Contemporary coastal patio at dusk">
-        <div class="cap">Contemporary coastal patio</div>
-      </article>
-      <article class="tile">
-        <img src="work3.jpg" alt="Airy living room &amp; staircase detail">
-        <div class="cap">Outdoor living &amp; stone pathway</div>
-      </article>
-    </div>
-  </section>
-
-  <!-- Gallery -->
-  <section id="gallery" class="wrap">
-    <h2>Laguna Beach — Gallery</h2>
-    <p class="note">Scenes we love in our hometown.</p>
-    <div class="grid">
-      <article class="tile"><img src="laguna1.jpg" alt="Laguna Beach view 1"></article>
-      <article class="tile"><img src="laguna2.jpg" alt="Laguna Beach view 2"></article>
-      <article class="tile"><img src="laguna3.jpg" alt="Laguna Beach view 3"></article>
-      <article class="tile"><img src="laguna4.jpg" alt="Laguna Beach view 4"></article>
+  <!-- Selected Work -->
+  <section id="work" class="section">
+    <div class="wrap">
+      <h2>Selected Work</h2>
+      <p class="muted">A look at recent projects delivered with craftsmanship and care.</p>
+      <div class="grid">
+        <article class="tile">
+          <img src="work1.jpg" alt="Lit-up onyx feature wall with spa and seating">
+          <div class="cap">Lit-Up Onyx Feature &amp; Spa Terrace</div>
+        </article>
+        <article class="tile">
+          <img src="work2.jpg" alt="Contemporary coastal patio with lounge area">
+          <div class="cap">Contemporary Coastal Patio</div>
+        </article>
+        <article class="tile">
+          <img src="work3.jpg" alt="Airy living room and floating staircase detail">
+          <div class="cap">Airy Living Room &amp; Stair Detail</div>
+        </article>
+      </div>
     </div>
   </section>
 
   <!-- Services -->
-  <section id="services" class="wrap">
-    <h2>What We Do</h2>
-    <p class="note">On-time schedules • Tidy sites • Transparent pricing</p>
-    <div class="grid">
-      <div class="tile"><div class="cap">Custom homes &amp; major remodels</div></div>
-      <div class="tile"><div class="cap">ADUs &amp; accessory units</div></div>
-      <div class="tile"><div class="cap">Decks, exteriors &amp; hillside work</div></div>
+  <section id="services" class="section">
+    <div class="wrap">
+      <h2>What We Do</h2>
+      <p class="muted">From concept to completion, we design and build spaces that endure — inside and out.</p>
+      <div class="grid">
+        <article class="tile"><div class="cap">Custom Homes &amp; Major Remodels</div></article>
+        <article class="tile"><div class="cap">ADUs &amp; Additions</div></article>
+        <article class="tile"><div class="cap">Decks, Exteriors &amp; Hardscape</div></article>
+      </div>
     </div>
   </section>
 
   <!-- About -->
-  <section id="about" class="wrap">
-    <h2>About Us</h2>
-    <p class="note">We’re a design–permit–build studio crafting calm, modern, coastal homes in Laguna Beach — one team from concept to keys.</p>
+  <section id="about" class="section">
+    <div class="wrap">
+      <h2>About Us</h2>
+      <p class="muted">Salt &amp; Summit builds resilient, beautifully crafted homes and outdoor spaces across Orange County. With 20+ years of experience, we manage design, permitting, and construction as one integrated team — so you enjoy a smoother process and an exceptional result.</p>
+    </div>
   </section>
 
   <!-- Contact -->
-  <section id="contact" class="wrap">
-    <h2>Contact</h2>
-    <div class="grid" style="gap:24px;flex-wrap:wrap">
-      <div class="tile" style="flex:1 1 360px">
-        <div class="cap" style="font-size:1rem;color:var(--ink)">
-          <strong>Phone:</strong> <a href="tel:+19492958534">949.295.8534</a><br>
-          <strong>Email:</strong> <a href="mailto:sam@saltandsummit.build">sam@saltandsummit.build</a><br>
-          <strong>Address:</strong> 1360&nbsp;Baja&nbsp;St, Laguna Beach
+  <section id="contact" class="section">
+    <div class="wrap">
+      <h2>Contact</h2>
+      <div class="grid" style="gap:24px">
+        <!-- Contact Info -->
+        <div class="card" aria-labelledby="contact-info-heading">
+          <h3 id="contact-info-heading" style="margin:0 0 12px">Get in Touch</h3>
+          <div class="contact-meta">
+            <div class="label">Phone</div>
+            <div><a href="tel:+19492958534">(949) 295-8534</a></div>
+
+            <div class="label">Email</div>
+            <div><a href="mailto:office@saltandsummit.build">office@saltandsummit.build</a></div>
+
+            <div class="label">Address</div>
+            <div>1360&nbsp;Baja&nbsp;St, Laguna&nbsp;Beach, CA 92651</div>
+
+            <div class="label">License</div>
+            <div>CA CSLB License #1145069 — <em>Class B: General Building</em></div>
+
+            <div class="label">Coverage</div>
+            <div>Bonded &amp; Insured • Serving Orange County</div>
+
+            <div class="label">Verify License</div>
+            <div><a href="https://www.cslb.ca.gov/online_services/check_license/License_Number.aspx" target="_blank" rel="noopener">Check status on CSLB</a></div>
+          </div>
         </div>
-      </div>
-      <div class="tile" style="flex:1 1 360px">
-        <form action="https://www.formspree.io/f/xvgwjrap" method="POST" style="padding:16px">
-          <label for="name">Name</label>
-          <input id="name" name="name" required>
-          <label for="email">Email</label>
-          <input id="email" name="email" type="email" required>
-          <label for="message">Message</label>
-          <textarea id="message" name="message" required></textarea>
-          <input type="text" name="extra" style="display:none" tabindex="-1" autocomplete="off">
-          <div style="margin-top:12px"><button class="btn" type="submit">Send Message</button></div>
-        </form>
+
+        <!-- Contact Form -->
+        <div class="card" aria-labelledby="contact-form-heading">
+          <h3 id="contact-form-heading" style="margin:0 0 12px">Request a Site Walk</h3>
+          <form action="https://formspree.io/f/xvgwjrap" method="POST">
+            <label for="name">Full Name</label>
+            <input id="name" name="name" required style="width:100%;padding:.7rem;border:1px solid #ddd;border-radius:10px;margin-top:6px">
+
+            <label for="email" style="margin-top:12px;display:block">Email</label>
+            <input id="email" name="email" type="email" required style="width:100%;padding:.7rem;border:1px solid #ddd;border-radius:10px">
+
+            <label for="message" style="margin-top:12px;display:block">Project Details</label>
+            <textarea id="message" name="message" rows="6" required style="width:100%;padding:.7rem;border:1px solid #ddd;border-radius:10px"></textarea>
+
+            <!-- Optional: pre-set subject & success redirect -->
+            <input type="hidden" name="_subject" value="New Site Walk Request — Salt &amp; Summit" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_next" value="https://saltandsummit.build/#success" />
+
+            <div style="margin-top:14px">
+              <button class="btn" type="submit">Send&nbsp;Message</button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   </section>
 
-  <footer class="wrap">
-    <div class="foot">
-      <div>© <span id="year"></span> Salt &amp; Summit Design Build Inc.</div>
-      <div>Design • Permit • Build — Orange&nbsp;County, CA</div>
+  <!-- Footer -->
+  <footer>
+    <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
+      <div style="display:flex;align-items:center;gap:12px">
+        <img src="salt_summit_logo_black_smooth.svg" alt="Salt &amp; Summit logo" style="height:28px" />
+        <span class="muted">© <span id="year"></span> &nbsp;Salt &amp; Summit Design Build Inc.</span>
+      </div>
+      <div class="muted" style="display:flex;gap:16px;align-items:center">
+        <a href="https://www.instagram.com/salt.summit/" target="_blank" rel="noopener">Instagram&nbsp;@salt.summit</a>
+        <span>•</span>
+        <span>CSLB #1145060&nbsp;| Class B</span>
+        <span>•</span>
+        <span>Bonded &amp; Insured</span>
+        <span>•</span>
+        <a href="https://www.cslb.ca.gov/online_services/check_license/License_Number.aspx" target="_blank" rel="noopener">Verify&nbsp;License</a>
+      </div>
     </div>
   </footer>
 
   <script>
-    (function(){var y=document.getElementById('year'); if(y) y.textContent=new Date().getFullYear();})();
+    (function () {
+      var y = document.querySelector('#year');
+      if (y) y.textContent = new Date().getFullYear();
+    })();
   </script>
 </body>
 </html>
